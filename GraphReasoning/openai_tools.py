@@ -11,13 +11,14 @@ import openai
 
 def generate_OpenAIGPT ( system_prompt='You are a materials scientist.', prompt="Decsribe the best options to design abrasive materials.",
               temperature=0.2,max_tokens=2048,timeout=120,
-             
+                base_url='',
              frequency_penalty=0, 
              presence_penalty=0, 
              top_p=1.,  
                openai_api_key='',gpt_model='gpt-4-vision-preview', organization='',
              ):
     client = openai.OpenAI(api_key=openai_api_key,
+                           base_url=base_url,
                       organization =organization)
 
     chat_completion = client.chat.completions.create(
